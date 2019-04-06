@@ -1,30 +1,20 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core';
 
-import A from 'components/A';
-import LocaleToggle from 'containers/LocaleToggle';
-import Wrapper from './Wrapper';
-import messages from './messages';
+const styles = {
+  root: {
+    paddingBottom: 40,
+  },
+};
 
-function Footer() {
-  return (
-    <Wrapper>
-      <section>
-        <FormattedMessage {...messages.licenseMessage} />
-      </section>
-      <section>
-        <LocaleToggle />
-      </section>
-      <section>
-        <FormattedMessage
-          {...messages.authorMessage}
-          values={{
-            author: <A href="https://twitter.com/mxstbr">Max Stoiber</A>,
-          }}
-        />
-      </section>
-    </Wrapper>
-  );
+function Footer({ classes }) {
+  return <div className={classes.root} />;
 }
 
-export default Footer;
+Footer.propTypes = {
+  // hoc
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles, { name: 'containers/Footer' })(Footer);

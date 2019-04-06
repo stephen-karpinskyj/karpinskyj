@@ -1,32 +1,78 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { withStyles } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
 
-import A from './A';
-import Img from './Img';
-import NavBar from './NavBar';
-import HeaderLink from './HeaderLink';
-import Banner from './banner.jpg';
-import messages from './messages';
+import H1 from 'components/H1';
+import MailIcon from 'images/mail.svg';
+import LinkedInIcon from 'images/linkedin.svg';
+import GitHubIcon from 'images/github.svg';
 
-/* eslint-disable react/prefer-stateless-function */
+const styles = {
+  root: {
+    paddingTop: 16,
+  },
+};
+
 class Header extends React.Component {
-  render() {
+  renderIcon = (href, icon, title, size = 24, target = '_blank') => (
+    <a href={href} target={target} title={title}>
+      <img src={icon} height={size} alt={title} />
+    </a>
+  );
+
+  renderIcons = () => (
+    <Grid container spacing={16} alignItems="baseline" wrap="nowrap">
+      <Grid item>
+        {this.renderIcon(
+          'mailto:stephen.karpinskyj@gmail.com',
+          MailIcon,
+          'Email',
+          30,
+          null,
+        )}
+      </Grid>
+      <Grid item>
+        {this.renderIcon(
+          'https://www.linkedin.com/in/stephen-karpinskyj',
+          LinkedInIcon,
+          'LinkedIn',
+        )}
+      </Grid>
+      <Grid item>
+        {this.renderIcon(
+          'https://github.com/stephen-karpinskyj?tab=repositories',
+          GitHubIcon,
+          'GitHub',
+        )}
+      </Grid>
+    </Grid>
+  );
+
+  renderName = name => <H1>{name}</H1>;
+
+  render = () => {
+    const { classes } = this.props;
     return (
-      <div>
-        <A href="https://twitter.com/mxstbr">
-          <Img src={Banner} alt="react-boilerplate - Logo" />
-        </A>
-        <NavBar>
-          <HeaderLink to="/">
-            <FormattedMessage {...messages.home} />
-          </HeaderLink>
-          <HeaderLink to="/features">
-            <FormattedMessage {...messages.features} />
-          </HeaderLink>
-        </NavBar>
-      </div>
+      <Grid
+        container
+        alignItems="center"
+        wrap="nowrap"
+        spacing={16}
+        classes={{ container: classes.root }}
+      >
+        <Grid item xs>
+          {this.renderName('Stephen Karpinskyj')}
+        </Grid>
+        <Grid item>{this.renderIcons()}</Grid>
+      </Grid>
     );
-  }
+  };
 }
 
-export default Header;
+Header.propTypes = {
+  // hoc
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles, { name: 'containers/Header' })(Header);
