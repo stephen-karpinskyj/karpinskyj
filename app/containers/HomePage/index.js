@@ -210,7 +210,6 @@ export class HomePage extends React.PureComponent {
           iconTitle: 'Orbit',
           apk: 'sk-orbit',
           repo: 'record',
-          noBuilds: true,
         })}
         {this.renderElement({
           date: 2018,
@@ -249,7 +248,6 @@ export class HomePage extends React.PureComponent {
           iconTitle: 'Dicey',
           apk: 'sk-dicey',
           repo: 'boxes',
-          noBuilds: true,
         })}
         {this.renderPrototypeElement({
           // date: 2016,
@@ -271,7 +269,6 @@ export class HomePage extends React.PureComponent {
           iconTitle: 'Puck',
           apk: 'sk-puck',
           repo: 'Orbit',
-          noBuilds: true,
         })}
         {this.renderElement({
           date: 2016,
