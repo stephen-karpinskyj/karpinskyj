@@ -10,7 +10,7 @@ const styles = {
       fontSize: '1.8em',
     },
     '@media screen and (max-width: 480px)': {
-      fontSize: '1.2em',
+      fontSize: '1.15em',
     },
     margin: 0,
   },

@@ -7,6 +7,7 @@ import H1 from 'components/H1';
 import MailIcon from 'images/mail.svg';
 import LinkedInIcon from 'images/linkedin.svg';
 import GitHubIcon from 'images/github.svg';
+import SpotifyIcon from 'images/spotify.svg';
 
 const styles = {
   root: {
@@ -22,7 +23,7 @@ class Header extends React.Component {
   );
 
   renderIcons = () => (
-    <Grid container spacing={16} alignItems="baseline" wrap="nowrap">
+    <Grid container spacing={8} alignItems="baseline" wrap="nowrap">
       <Grid item>
         {this.renderIcon(
           'mailto:stephen.karpinskyj@gmail.com',
@@ -30,6 +31,14 @@ class Header extends React.Component {
           'Email',
           30,
           null,
+        )}
+      </Grid>
+      <Grid item>
+        {this.renderIcon(
+          'https://open.spotify.com/user/stephenkarpinskyj/playlist/5TV1bUc9371Z3AnLinutZv?si=hWl8D19GQvuh7aB8vHLozQ',
+          SpotifyIcon,
+          'Spotify',
+          30,
         )}
       </Grid>
       <Grid item>
