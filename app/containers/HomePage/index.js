@@ -258,7 +258,6 @@ export class HomePage extends React.PureComponent {
           iconTitle: 'Beat',
           apk: 'sk-beat',
           repo: 'flip',
-          noBuilds: true,
         })}
         {this.renderPrototypeElement({
           // date: 2016,
