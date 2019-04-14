@@ -149,13 +149,13 @@ export class HomePage extends React.PureComponent {
     iconTitle,
     apk,
     repo,
-    noBuilds = false,
+    noWebGL = false,
   }) =>
     this.renderElement({
       date,
       icon: this.renderIcon({
         icon,
-        href: noBuilds ? `https://github.com/stephen-karpinskyj/${repo}` : href,
+        href: noWebGL ? `https://github.com/stephen-karpinskyj/${repo}` : href,
         title: iconTitle,
         margin: 0,
       }),
@@ -165,7 +165,7 @@ export class HomePage extends React.PureComponent {
             {title}
           </Grid>
           <Grid item>
-            {!noBuilds && (
+            {!noWebGL && (
               <React.Fragment>
                 {this.renderLink({
                   href,
@@ -173,14 +173,14 @@ export class HomePage extends React.PureComponent {
                   content: 'Web',
                 })}
                 {'; '}
-                {this.renderLink({
-                  href: `/apk/${apk}.apk`,
-                  title: 'Download .apk',
-                  content: 'Android',
-                })}
-                {'; '}
               </React.Fragment>
             )}
+            {this.renderLink({
+              href: `/apk/${apk}.apk`,
+              title: 'Download .apk',
+              content: 'Android',
+            })}
+            {'; '}
             {this.renderLink({
               Component: 'a',
               href: `https://github.com/stephen-karpinskyj/${repo}`,
@@ -258,6 +258,7 @@ export class HomePage extends React.PureComponent {
           iconTitle: 'Beat',
           apk: 'sk-beat',
           repo: 'flip',
+          noWebGL: true,
         })}
         {this.renderPrototypeElement({
           // date: 2016,
